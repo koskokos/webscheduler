@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="bcfe347f1d2640eda5dfedb6bf9dbf94" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.Contacts" Width="1.5" PointX="6.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Event" Width="1.5" PointX="4.5" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.EventTemplates" Width="1.5" PointX="7.875" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Folders" Width="1.5" PointX="4.5" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Languages" Width="1.5" PointX="4.375" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Properties" Width="1.5" PointX="10.375" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PropertiesValuesBool" Width="1.5" PointX="13.5" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PropertiesValuesDateTime" Width="1.5" PointX="16.5" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PropertiesValuesImages" Width="1.5" PointX="16.5" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PropertiesValuesInt" Width="1.5" PointX="16.5" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PropertiesValuesString" Width="1.5" PointX="13.5" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PropertyTypes" Width="1.5" PointX="10.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.StringNames" Width="1.5" PointX="0.5" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.StringsLocalization" Width="1.5" PointX="2.5" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.UserData" Width="1.5" PointX="4.375" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.UserProperties" Width="1.5" PointX="2.375" PointY="11.75" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK_Contacts_UserData" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Event_EventTemplates" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Event_UserData" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_PropertiesValuesBool_Event" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_PropertiesValuesDateTime_Event" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_PropertiesValuesImages_Event" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_PropertiesValuesInt_Event" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_PropertiesValuesString_Event" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Folders_UserData" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_StringsLocalization_Languages" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_UserData_Languages" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Properties_PropertyTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_PropertiesValuesBool_Properties" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_PropertiesValuesDateTime_Properties" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_PropertiesValuesImages_Properties" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_PropertiesValuesInt_Properties" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_PropertiesValuesString_Properties" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_StringsLocalization_StringsNames" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_UserProperties_UserData" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FoldersToEvents" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.RegisteredContacts" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.TemplateProperties" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_EventTemplates_UserData" ManuallyRouted="false" >
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Model.NotRegisteredContacts" Width="1.5" PointX="6" PointY="9" />
+        <EntityTypeShape EntityType="Model.NotRegisteredContactsProperties" Width="1.5" PointX="9" PointY="10.5" />
+        <AssociationConnector Association="Model.FK_NotRegisteredContacts_Contacts1" />
+        <AssociationConnector Association="Model.FK_NotRegisteredContactsProperties_NotRegisteredContacts" />
+        <EntityTypeShape EntityType="Model.ContactsSummary" Width="1.5" PointX="6.5" PointY="13.75" />
+        <EntityTypeShape EntityType="Model.Images" Width="1.5" PointX="10.549279420892372" PointY="22.900143172079765" />
+        <AssociationConnector Association="Model.FK__EventTemp__Pictu__18EBB532" />
+        <AssociationConnector Association="Model.FK__Propertie__Image__160F4887" />
+        <AssociationConnector Association="Model.FK__UserData__Pictur__17F790F9" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

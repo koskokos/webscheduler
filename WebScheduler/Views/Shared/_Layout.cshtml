@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title - My ASP.NET MVC Application</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+        @{
+            WebScheduler.Filters.LocalizedStringsManager strings = WebScheduler.Filters.LocalizedStringsManager.GetInstance();
+        }
+    </head>
+    <body>
+
+        <header class="grad-img">
+             <div class="content-wrapper main-title">
+                    <div id="lang-menu" class=" float-right" >
+                        @if (!Request.IsAuthenticated)
+                            {
+                                <ul id="lang">
+                                    <li id="en-lang"><a  href="javascript:setLangCookie('en')">En</a></li>
+                                    <li id="ru-lang"><a  href="javascript:setLangCookie('ru')">Ru</a></li>
+                                    <li id="ua-lang"><a  href="javascript:setLangCookie('uk')">Ua</a></li>
+                                </ul>
+                            }
+                 </div>
+                 <section id="login">
+                         @Html.Partial("_LoginPartial")
+                 </section>
+                    <nav class="M-top">
+                        <ul id="menu" class="ClearBoth">
+                            <li>@Html.ActionLink(@strings["Home"], "Index", "Home")</li>
+                            <li>@Html.ActionLink(@strings["About"], "About", "Home")</li>
+                            <li>@Html.ActionLink(@strings["Contact"], "Contact", "Home")</li>
+                        </ul>
+                    </nav>
+            </div>
+        </header>
+
+
+
+        <div id="body">
+            @RenderSection("featured", required: false)
+            <section class="content-wrapper main-content clear-fix">
+                @RenderBody()
+            </section>
+        </div>
+        <footer>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p>&copy; @DateTime.Now.Year - My ASP.NET MVC Application</p>
+                </div>
+            </div>
+        </footer>
+
+        @Scripts.Render("~/bundles/jquery", "~/bundles/jquery.cookie", "~/bundles/locale")
+        @RenderSection("scripts", required: false)
+    </body>
+</html>

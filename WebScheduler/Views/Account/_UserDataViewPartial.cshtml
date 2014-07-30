@@ -1,0 +1,71 @@
+﻿@model WebScheduler.Models.UserData
+
+@using WebScheduler.Classes
+
+<fieldset>
+    <legend>UserDataViewModel</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UserId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UserId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Surname)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Surname)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SecondName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SecondName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.BirthDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BirthDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PictureId)
+    </div>
+    <div class="display-field">
+        @Html.Picture(Model.PictureId, "fuck the picture")
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Languages.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Languages.Name)
+    </div>
+
+    @foreach (var item in Model.UserProperties)
+    {
+        <div class="display-label">
+            @Html.Display(item.Name)
+        </div>
+        <div class="display-field">
+            @Html.Display(item.Value)
+        </div>
+    }
+
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

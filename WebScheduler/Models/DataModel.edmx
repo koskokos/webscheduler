@@ -1,0 +1,1659 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="Contacts" EntityType="Model.Store.Contacts" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Event" EntityType="Model.Store.Event" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EventTemplates" EntityType="Model.Store.EventTemplates" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Folders" EntityType="Model.Store.Folders" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="FoldersToEvents" EntityType="Model.Store.FoldersToEvents" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Images" EntityType="Model.Store.Images" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Languages" EntityType="Model.Store.Languages" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="NotRegisteredContacts" EntityType="Model.Store.NotRegisteredContacts" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="NotRegisteredContactsProperties" EntityType="Model.Store.NotRegisteredContactsProperties" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Properties" EntityType="Model.Store.Properties" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PropertiesValuesBool" EntityType="Model.Store.PropertiesValuesBool" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PropertiesValuesDateTime" EntityType="Model.Store.PropertiesValuesDateTime" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PropertiesValuesImages" EntityType="Model.Store.PropertiesValuesImages" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PropertiesValuesInt" EntityType="Model.Store.PropertiesValuesInt" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PropertiesValuesString" EntityType="Model.Store.PropertiesValuesString" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PropertyTypes" EntityType="Model.Store.PropertyTypes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RegisteredContacts" EntityType="Model.Store.RegisteredContacts" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="StringNames" EntityType="Model.Store.StringNames" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="StringsLocalization" EntityType="Model.Store.StringsLocalization" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TemplateProperties" EntityType="Model.Store.TemplateProperties" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserData" EntityType="Model.Store.UserData" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserProperties" EntityType="Model.Store.UserProperties" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ContactsSummary" EntityType="Model.Store.ContactsSummary" store:Type="Views" store:Schema="dbo" store:Name="ContactsSummary">
+            <DefiningQuery>SELECT 
+      [ContactsSummary].[UserId] AS [UserId], 
+      [ContactsSummary].[Name] AS [Name], 
+      [ContactsSummary].[Surname] AS [Surname]
+      FROM [dbo].[ContactsSummary] AS [ContactsSummary]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__EventTemp__Pictu__18EBB532" Association="Model.Store.FK__EventTemp__Pictu__18EBB532">
+            <End Role="Images" EntitySet="Images" />
+            <End Role="EventTemplates" EntitySet="EventTemplates" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Propertie__Image__160F4887" Association="Model.Store.FK__Propertie__Image__160F4887">
+            <End Role="Images" EntitySet="Images" />
+            <End Role="PropertiesValuesImages" EntitySet="PropertiesValuesImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserData__Pictur__17F790F9" Association="Model.Store.FK__UserData__Pictur__17F790F9">
+            <End Role="Images" EntitySet="Images" />
+            <End Role="UserData" EntitySet="UserData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contacts_UserData" Association="Model.Store.FK_Contacts_UserData">
+            <End Role="UserData" EntitySet="UserData" />
+            <End Role="Contacts" EntitySet="Contacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Event_EventTemplates" Association="Model.Store.FK_Event_EventTemplates">
+            <End Role="EventTemplates" EntitySet="EventTemplates" />
+            <End Role="Event" EntitySet="Event" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Event_UserData" Association="Model.Store.FK_Event_UserData">
+            <End Role="UserData" EntitySet="UserData" />
+            <End Role="Event" EntitySet="Event" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EventTemplates_UserData" Association="Model.Store.FK_EventTemplates_UserData">
+            <End Role="UserData" EntitySet="UserData" />
+            <End Role="EventTemplates" EntitySet="EventTemplates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Folders_UserData" Association="Model.Store.FK_Folders_UserData">
+            <End Role="UserData" EntitySet="UserData" />
+            <End Role="Folders" EntitySet="Folders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FoldersToEvents_Event" Association="Model.Store.FK_FoldersToEvents_Event">
+            <End Role="Event" EntitySet="Event" />
+            <End Role="FoldersToEvents" EntitySet="FoldersToEvents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FoldersToEvents_Folders" Association="Model.Store.FK_FoldersToEvents_Folders">
+            <End Role="Folders" EntitySet="Folders" />
+            <End Role="FoldersToEvents" EntitySet="FoldersToEvents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NotRegisteredContacts_Contacts1" Association="Model.Store.FK_NotRegisteredContacts_Contacts1">
+            <End Role="Contacts" EntitySet="Contacts" />
+            <End Role="NotRegisteredContacts" EntitySet="NotRegisteredContacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NotRegisteredContactsProperties_NotRegisteredContacts" Association="Model.Store.FK_NotRegisteredContactsProperties_NotRegisteredContacts">
+            <End Role="NotRegisteredContacts" EntitySet="NotRegisteredContacts" />
+            <End Role="NotRegisteredContactsProperties" EntitySet="NotRegisteredContactsProperties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Properties_PropertyTypes" Association="Model.Store.FK_Properties_PropertyTypes">
+            <End Role="PropertyTypes" EntitySet="PropertyTypes" />
+            <End Role="Properties" EntitySet="Properties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PropertiesValuesBool_Event" Association="Model.Store.FK_PropertiesValuesBool_Event">
+            <End Role="Event" EntitySet="Event" />
+            <End Role="PropertiesValuesBool" EntitySet="PropertiesValuesBool" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PropertiesValuesBool_Properties" Association="Model.Store.FK_PropertiesValuesBool_Properties">
+            <End Role="Properties" EntitySet="Properties" />
+            <End Role="PropertiesValuesBool" EntitySet="PropertiesValuesBool" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PropertiesValuesDateTime_Event" Association="Model.Store.FK_PropertiesValuesDateTime_Event">
+            <End Role="Event" EntitySet="Event" />
+            <End Role="PropertiesValuesDateTime" EntitySet="PropertiesValuesDateTime" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PropertiesValuesDateTime_Properties" Association="Model.Store.FK_PropertiesValuesDateTime_Properties">
+            <End Role="Properties" EntitySet="Properties" />
+            <End Role="PropertiesValuesDateTime" EntitySet="PropertiesValuesDateTime" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PropertiesValuesImages_Event" Association="Model.Store.FK_PropertiesValuesImages_Event">
+            <End Role="Event" EntitySet="Event" />
+            <End Role="PropertiesValuesImages" EntitySet="PropertiesValuesImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PropertiesValuesImages_Properties" Association="Model.Store.FK_PropertiesValuesImages_Properties">
+            <End Role="Properties" EntitySet="Properties" />
+            <End Role="PropertiesValuesImages" EntitySet="PropertiesValuesImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PropertiesValuesInt_Event" Association="Model.Store.FK_PropertiesValuesInt_Event">
+            <End Role="Event" EntitySet="Event" />
+            <End Role="PropertiesValuesInt" EntitySet="PropertiesValuesInt" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PropertiesValuesInt_Properties" Association="Model.Store.FK_PropertiesValuesInt_Properties">
+            <End Role="Properties" EntitySet="Properties" />
+            <End Role="PropertiesValuesInt" EntitySet="PropertiesValuesInt" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PropertiesValuesString_Event" Association="Model.Store.FK_PropertiesValuesString_Event">
+            <End Role="Event" EntitySet="Event" />
+            <End Role="PropertiesValuesString" EntitySet="PropertiesValuesString" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PropertiesValuesString_Properties" Association="Model.Store.FK_PropertiesValuesString_Properties">
+            <End Role="Properties" EntitySet="Properties" />
+            <End Role="PropertiesValuesString" EntitySet="PropertiesValuesString" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RegisteredContacts_Contacts" Association="Model.Store.FK_RegisteredContacts_Contacts">
+            <End Role="Contacts" EntitySet="Contacts" />
+            <End Role="RegisteredContacts" EntitySet="RegisteredContacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RegisteredContacts_UserData" Association="Model.Store.FK_RegisteredContacts_UserData">
+            <End Role="UserData" EntitySet="UserData" />
+            <End Role="RegisteredContacts" EntitySet="RegisteredContacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StringsLocalization_Languages" Association="Model.Store.FK_StringsLocalization_Languages">
+            <End Role="Languages" EntitySet="Languages" />
+            <End Role="StringsLocalization" EntitySet="StringsLocalization" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StringsLocalization_StringsNames" Association="Model.Store.FK_StringsLocalization_StringsNames">
+            <End Role="StringNames" EntitySet="StringNames" />
+            <End Role="StringsLocalization" EntitySet="StringsLocalization" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TemplateProperties_EventTemplates" Association="Model.Store.FK_TemplateProperties_EventTemplates">
+            <End Role="EventTemplates" EntitySet="EventTemplates" />
+            <End Role="TemplateProperties" EntitySet="TemplateProperties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TemplateProperties_Properties" Association="Model.Store.FK_TemplateProperties_Properties">
+            <End Role="Properties" EntitySet="Properties" />
+            <End Role="TemplateProperties" EntitySet="TemplateProperties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserData_Languages" Association="Model.Store.FK_UserData_Languages">
+            <End Role="Languages" EntitySet="Languages" />
+            <End Role="UserData" EntitySet="UserData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserProperties_UserData" Association="Model.Store.FK_UserProperties_UserData">
+            <End Role="UserData" EntitySet="UserData" />
+            <End Role="UserProperties" EntitySet="UserProperties" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Contacts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="CreationDateTime" Type="datetime2" Nullable="false" />
+          <Property Name="TemplateId" Type="int" Nullable="false" />
+          <Property Name="DeletionDate" Type="datetime2" />
+        </EntityType>
+        <EntityType Name="EventTemplates">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="PictureId" Type="int" />
+        </EntityType>
+        <EntityType Name="Folders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="CreationDate" Type="datetime2" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="PictureId" Type="int" />
+        </EntityType>
+        <EntityType Name="FoldersToEvents">
+          <Key>
+            <PropertyRef Name="EventId" />
+            <PropertyRef Name="FolderId" />
+          </Key>
+          <Property Name="EventId" Type="int" Nullable="false" />
+          <Property Name="FolderId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Images">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Image" Type="image" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Languages">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="DisplayName" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="NotRegisteredContacts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Surname" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="NotRegisteredContactsProperties">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="ContactId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Value" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="Properties">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="TypeId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PropertiesValuesBool">
+          <Key>
+            <PropertyRef Name="PropertyId" />
+            <PropertyRef Name="EventId" />
+          </Key>
+          <Property Name="PropertyId" Type="int" Nullable="false" />
+          <Property Name="EventId" Type="int" Nullable="false" />
+          <Property Name="Value" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PropertiesValuesDateTime">
+          <Key>
+            <PropertyRef Name="PropertyId" />
+            <PropertyRef Name="EventId" />
+          </Key>
+          <Property Name="PropertyId" Type="int" Nullable="false" />
+          <Property Name="EventId" Type="int" Nullable="false" />
+          <Property Name="Value" Type="datetime2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PropertiesValuesImages">
+          <Key>
+            <PropertyRef Name="PropertyId" />
+            <PropertyRef Name="EventId" />
+          </Key>
+          <Property Name="PropertyId" Type="int" Nullable="false" />
+          <Property Name="EventId" Type="int" Nullable="false" />
+          <Property Name="ImageId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PropertiesValuesInt">
+          <Key>
+            <PropertyRef Name="PropertyId" />
+            <PropertyRef Name="EventId" />
+          </Key>
+          <Property Name="PropertyId" Type="int" Nullable="false" />
+          <Property Name="EventId" Type="int" Nullable="false" />
+          <Property Name="Value" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PropertiesValuesString">
+          <Key>
+            <PropertyRef Name="PropertyId" />
+            <PropertyRef Name="EventId" />
+          </Key>
+          <Property Name="PropertyId" Type="int" Nullable="false" />
+          <Property Name="EventId" Type="int" Nullable="false" />
+          <Property Name="Value" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PropertyTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TypeName" Type="nvarchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="RegisteredContacts">
+          <Key>
+            <PropertyRef Name="ContactId" />
+          </Key>
+          <Property Name="ContactId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StringNames">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="StringsLocalization">
+          <Key>
+            <PropertyRef Name="StringId" />
+            <PropertyRef Name="LangId" />
+          </Key>
+          <Property Name="StringId" Type="int" Nullable="false" />
+          <Property Name="LangId" Type="int" Nullable="false" />
+          <Property Name="LocalizedString" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TemplateProperties">
+          <Key>
+            <PropertyRef Name="TemplateId" />
+            <PropertyRef Name="PropertyId" />
+          </Key>
+          <Property Name="TemplateId" Type="int" Nullable="false" />
+          <Property Name="PropertyId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserData">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Surname" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="SecondName" Type="nvarchar" MaxLength="50" />
+          <Property Name="BirthDate" Type="date" />
+          <Property Name="LangId" Type="int" Nullable="false" />
+          <Property Name="PictureId" Type="int" />
+        </EntityType>
+        <EntityType Name="UserProperties">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="Value" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'aspnet-WebScheduler-20130330132231.dbo.ContactsSummary' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="ContactsSummary">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Surname" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Surname" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK__EventTemp__Pictu__18EBB532">
+          <End Role="Images" Type="Model.Store.Images" Multiplicity="0..1" />
+          <End Role="EventTemplates" Type="Model.Store.EventTemplates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Images">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EventTemplates">
+              <PropertyRef Name="PictureId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Propertie__Image__160F4887">
+          <End Role="Images" Type="Model.Store.Images" Multiplicity="1" />
+          <End Role="PropertiesValuesImages" Type="Model.Store.PropertiesValuesImages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Images">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PropertiesValuesImages">
+              <PropertyRef Name="ImageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserData__Pictur__17F790F9">
+          <End Role="Images" Type="Model.Store.Images" Multiplicity="0..1" />
+          <End Role="UserData" Type="Model.Store.UserData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Images">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserData">
+              <PropertyRef Name="PictureId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contacts_UserData">
+          <End Role="UserData" Type="Model.Store.UserData" Multiplicity="1" />
+          <End Role="Contacts" Type="Model.Store.Contacts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserData">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Contacts">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Event_EventTemplates">
+          <End Role="EventTemplates" Type="Model.Store.EventTemplates" Multiplicity="1" />
+          <End Role="Event" Type="Model.Store.Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EventTemplates">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="TemplateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Event_UserData">
+          <End Role="UserData" Type="Model.Store.UserData" Multiplicity="1" />
+          <End Role="Event" Type="Model.Store.Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserData">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EventTemplates_UserData">
+          <End Role="UserData" Type="Model.Store.UserData" Multiplicity="0..1" />
+          <End Role="EventTemplates" Type="Model.Store.EventTemplates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserData">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="EventTemplates">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Folders_UserData">
+          <End Role="UserData" Type="Model.Store.UserData" Multiplicity="1" />
+          <End Role="Folders" Type="Model.Store.Folders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserData">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Folders">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FoldersToEvents_Event">
+          <End Role="Event" Type="Model.Store.Event" Multiplicity="1" />
+          <End Role="FoldersToEvents" Type="Model.Store.FoldersToEvents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FoldersToEvents">
+              <PropertyRef Name="EventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FoldersToEvents_Folders">
+          <End Role="Folders" Type="Model.Store.Folders" Multiplicity="1" />
+          <End Role="FoldersToEvents" Type="Model.Store.FoldersToEvents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Folders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FoldersToEvents">
+              <PropertyRef Name="FolderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NotRegisteredContacts_Contacts1">
+          <End Role="Contacts" Type="Model.Store.Contacts" Multiplicity="1" />
+          <End Role="NotRegisteredContacts" Type="Model.Store.NotRegisteredContacts" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Contacts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NotRegisteredContacts">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NotRegisteredContactsProperties_NotRegisteredContacts">
+          <End Role="NotRegisteredContacts" Type="Model.Store.NotRegisteredContacts" Multiplicity="1" />
+          <End Role="NotRegisteredContactsProperties" Type="Model.Store.NotRegisteredContactsProperties" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NotRegisteredContacts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NotRegisteredContactsProperties">
+              <PropertyRef Name="ContactId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Properties_PropertyTypes">
+          <End Role="PropertyTypes" Type="Model.Store.PropertyTypes" Multiplicity="1" />
+          <End Role="Properties" Type="Model.Store.Properties" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PropertyTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Properties">
+              <PropertyRef Name="TypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PropertiesValuesBool_Event">
+          <End Role="Event" Type="Model.Store.Event" Multiplicity="1" />
+          <End Role="PropertiesValuesBool" Type="Model.Store.PropertiesValuesBool" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PropertiesValuesBool">
+              <PropertyRef Name="EventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PropertiesValuesBool_Properties">
+          <End Role="Properties" Type="Model.Store.Properties" Multiplicity="1" />
+          <End Role="PropertiesValuesBool" Type="Model.Store.PropertiesValuesBool" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Properties">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PropertiesValuesBool">
+              <PropertyRef Name="PropertyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PropertiesValuesDateTime_Event">
+          <End Role="Event" Type="Model.Store.Event" Multiplicity="1" />
+          <End Role="PropertiesValuesDateTime" Type="Model.Store.PropertiesValuesDateTime" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PropertiesValuesDateTime">
+              <PropertyRef Name="EventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PropertiesValuesDateTime_Properties">
+          <End Role="Properties" Type="Model.Store.Properties" Multiplicity="1" />
+          <End Role="PropertiesValuesDateTime" Type="Model.Store.PropertiesValuesDateTime" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Properties">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PropertiesValuesDateTime">
+              <PropertyRef Name="PropertyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PropertiesValuesImages_Event">
+          <End Role="Event" Type="Model.Store.Event" Multiplicity="1" />
+          <End Role="PropertiesValuesImages" Type="Model.Store.PropertiesValuesImages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PropertiesValuesImages">
+              <PropertyRef Name="EventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PropertiesValuesImages_Properties">
+          <End Role="Properties" Type="Model.Store.Properties" Multiplicity="1" />
+          <End Role="PropertiesValuesImages" Type="Model.Store.PropertiesValuesImages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Properties">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PropertiesValuesImages">
+              <PropertyRef Name="PropertyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PropertiesValuesInt_Event">
+          <End Role="Event" Type="Model.Store.Event" Multiplicity="1" />
+          <End Role="PropertiesValuesInt" Type="Model.Store.PropertiesValuesInt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PropertiesValuesInt">
+              <PropertyRef Name="EventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PropertiesValuesInt_Properties">
+          <End Role="Properties" Type="Model.Store.Properties" Multiplicity="1" />
+          <End Role="PropertiesValuesInt" Type="Model.Store.PropertiesValuesInt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Properties">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PropertiesValuesInt">
+              <PropertyRef Name="PropertyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PropertiesValuesString_Event">
+          <End Role="Event" Type="Model.Store.Event" Multiplicity="1" />
+          <End Role="PropertiesValuesString" Type="Model.Store.PropertiesValuesString" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PropertiesValuesString">
+              <PropertyRef Name="EventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PropertiesValuesString_Properties">
+          <End Role="Properties" Type="Model.Store.Properties" Multiplicity="1" />
+          <End Role="PropertiesValuesString" Type="Model.Store.PropertiesValuesString" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Properties">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PropertiesValuesString">
+              <PropertyRef Name="PropertyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RegisteredContacts_Contacts">
+          <End Role="Contacts" Type="Model.Store.Contacts" Multiplicity="1" />
+          <End Role="RegisteredContacts" Type="Model.Store.RegisteredContacts" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Contacts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RegisteredContacts">
+              <PropertyRef Name="ContactId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RegisteredContacts_UserData">
+          <End Role="UserData" Type="Model.Store.UserData" Multiplicity="1" />
+          <End Role="RegisteredContacts" Type="Model.Store.RegisteredContacts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserData">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="RegisteredContacts">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StringsLocalization_Languages">
+          <End Role="Languages" Type="Model.Store.Languages" Multiplicity="1" />
+          <End Role="StringsLocalization" Type="Model.Store.StringsLocalization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Languages">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StringsLocalization">
+              <PropertyRef Name="LangId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StringsLocalization_StringsNames">
+          <End Role="StringNames" Type="Model.Store.StringNames" Multiplicity="1" />
+          <End Role="StringsLocalization" Type="Model.Store.StringsLocalization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StringNames">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StringsLocalization">
+              <PropertyRef Name="StringId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TemplateProperties_EventTemplates">
+          <End Role="EventTemplates" Type="Model.Store.EventTemplates" Multiplicity="1" />
+          <End Role="TemplateProperties" Type="Model.Store.TemplateProperties" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EventTemplates">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TemplateProperties">
+              <PropertyRef Name="TemplateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TemplateProperties_Properties">
+          <End Role="Properties" Type="Model.Store.Properties" Multiplicity="1" />
+          <End Role="TemplateProperties" Type="Model.Store.TemplateProperties" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Properties">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TemplateProperties">
+              <PropertyRef Name="PropertyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserData_Languages">
+          <End Role="Languages" Type="Model.Store.Languages" Multiplicity="1" />
+          <End Role="UserData" Type="Model.Store.UserData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Languages">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserData">
+              <PropertyRef Name="LangId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserProperties_UserData">
+          <End Role="UserData" Type="Model.Store.UserData" Multiplicity="1" />
+          <End Role="UserProperties" Type="Model.Store.UserProperties" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserData">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserProperties">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Entities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Contacts" EntityType="Model.Contacts" />
+          <EntitySet Name="Event" EntityType="Model.Event" />
+          <EntitySet Name="EventTemplates" EntityType="Model.EventTemplates" />
+          <EntitySet Name="Folders" EntityType="Model.Folders" />
+          <EntitySet Name="Langs" EntityType="Model.Languages" />
+          <EntitySet Name="Properties" EntityType="Model.Properties" />
+          <EntitySet Name="PropertiesValuesBool" EntityType="Model.PropertiesValuesBool" />
+          <EntitySet Name="PropertiesValuesDateTime" EntityType="Model.PropertiesValuesDateTime" />
+          <EntitySet Name="PropertiesValuesImages" EntityType="Model.PropertiesValuesImages" />
+          <EntitySet Name="PropertiesValuesInt" EntityType="Model.PropertiesValuesInt" />
+          <EntitySet Name="PropertiesValuesString" EntityType="Model.PropertiesValuesString" />
+          <EntitySet Name="PropertyTypes" EntityType="Model.PropertyTypes" />
+          <EntitySet Name="StringNames" EntityType="Model.StringNames" />
+          <EntitySet Name="StringsLocalization" EntityType="Model.StringsLocalization" />
+          <EntitySet Name="UserData" EntityType="Model.UserData" />
+          <EntitySet Name="UserProperties" EntityType="Model.UserProperties" />
+          <AssociationSet Name="FK_Contacts_UserData" Association="Model.FK_Contacts_UserData">
+            <End Role="UserData" EntitySet="UserData" />
+            <End Role="Contacts" EntitySet="Contacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Event_EventTemplates" Association="Model.FK_Event_EventTemplates">
+            <End Role="EventTemplates" EntitySet="EventTemplates" />
+            <End Role="Event" EntitySet="Event" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Event_UserData" Association="Model.FK_Event_UserData">
+            <End Role="UserData" EntitySet="UserData" />
+            <End Role="Event" EntitySet="Event" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PropertiesValuesBool_Event" Association="Model.FK_PropertiesValuesBool_Event">
+            <End Role="Event" EntitySet="Event" />
+            <End Role="PropertiesValuesBool" EntitySet="PropertiesValuesBool" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PropertiesValuesDateTime_Event" Association="Model.FK_PropertiesValuesDateTime_Event">
+            <End Role="Event" EntitySet="Event" />
+            <End Role="PropertiesValuesDateTime" EntitySet="PropertiesValuesDateTime" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PropertiesValuesImages_Event" Association="Model.FK_PropertiesValuesImages_Event">
+            <End Role="Event" EntitySet="Event" />
+            <End Role="PropertiesValuesImages" EntitySet="PropertiesValuesImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PropertiesValuesInt_Event" Association="Model.FK_PropertiesValuesInt_Event">
+            <End Role="Event" EntitySet="Event" />
+            <End Role="PropertiesValuesInt" EntitySet="PropertiesValuesInt" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PropertiesValuesString_Event" Association="Model.FK_PropertiesValuesString_Event">
+            <End Role="Event" EntitySet="Event" />
+            <End Role="PropertiesValuesString" EntitySet="PropertiesValuesString" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Folders_UserData" Association="Model.FK_Folders_UserData">
+            <End Role="UserData" EntitySet="UserData" />
+            <End Role="Folders" EntitySet="Folders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StringsLocalization_Languages" Association="Model.FK_StringsLocalization_Languages">
+            <End Role="Languages" EntitySet="Langs" />
+            <End Role="StringsLocalization" EntitySet="StringsLocalization" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserData_Languages" Association="Model.FK_UserData_Languages">
+            <End Role="Languages" EntitySet="Langs" />
+            <End Role="UserData" EntitySet="UserData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Properties_PropertyTypes" Association="Model.FK_Properties_PropertyTypes">
+            <End Role="PropertyTypes" EntitySet="PropertyTypes" />
+            <End Role="Properties" EntitySet="Properties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PropertiesValuesBool_Properties" Association="Model.FK_PropertiesValuesBool_Properties">
+            <End Role="Properties" EntitySet="Properties" />
+            <End Role="PropertiesValuesBool" EntitySet="PropertiesValuesBool" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PropertiesValuesDateTime_Properties" Association="Model.FK_PropertiesValuesDateTime_Properties">
+            <End Role="Properties" EntitySet="Properties" />
+            <End Role="PropertiesValuesDateTime" EntitySet="PropertiesValuesDateTime" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PropertiesValuesImages_Properties" Association="Model.FK_PropertiesValuesImages_Properties">
+            <End Role="Properties" EntitySet="Properties" />
+            <End Role="PropertiesValuesImages" EntitySet="PropertiesValuesImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PropertiesValuesInt_Properties" Association="Model.FK_PropertiesValuesInt_Properties">
+            <End Role="Properties" EntitySet="Properties" />
+            <End Role="PropertiesValuesInt" EntitySet="PropertiesValuesInt" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PropertiesValuesString_Properties" Association="Model.FK_PropertiesValuesString_Properties">
+            <End Role="Properties" EntitySet="Properties" />
+            <End Role="PropertiesValuesString" EntitySet="PropertiesValuesString" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StringsLocalization_StringsNames" Association="Model.FK_StringsLocalization_StringsNames">
+            <End Role="StringNames" EntitySet="StringNames" />
+            <End Role="StringsLocalization" EntitySet="StringsLocalization" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserProperties_UserData" Association="Model.FK_UserProperties_UserData">
+            <End Role="UserData" EntitySet="UserData" />
+            <End Role="UserProperties" EntitySet="UserProperties" />
+          </AssociationSet>
+          <AssociationSet Name="FoldersToEvents" Association="Model.FoldersToEvents">
+            <End Role="Event" EntitySet="Event" />
+            <End Role="Folders" EntitySet="Folders" />
+          </AssociationSet>
+          <AssociationSet Name="RegisteredContacts" Association="Model.RegisteredContacts">
+            <End Role="Contacts" EntitySet="Contacts" />
+            <End Role="UserData" EntitySet="UserData" />
+          </AssociationSet>
+          <AssociationSet Name="TemplateProperties" Association="Model.TemplateProperties">
+            <End Role="EventTemplates" EntitySet="EventTemplates" />
+            <End Role="Properties" EntitySet="Properties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EventTemplates_UserData" Association="Model.FK_EventTemplates_UserData">
+            <End Role="UserData" EntitySet="UserData" />
+            <End Role="EventTemplates" EntitySet="EventTemplates" />
+          </AssociationSet>
+          <EntitySet Name="NotRegisteredContacts" EntityType="Model.NotRegisteredContacts" />
+          <EntitySet Name="NotRegisteredContactsProperties" EntityType="Model.NotRegisteredContactsProperties" />
+          <AssociationSet Name="FK_NotRegisteredContacts_Contacts1" Association="Model.FK_NotRegisteredContacts_Contacts1">
+            <End Role="Contacts" EntitySet="Contacts" />
+            <End Role="NotRegisteredContacts" EntitySet="NotRegisteredContacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NotRegisteredContactsProperties_NotRegisteredContacts" Association="Model.FK_NotRegisteredContactsProperties_NotRegisteredContacts">
+            <End Role="NotRegisteredContacts" EntitySet="NotRegisteredContacts" />
+            <End Role="NotRegisteredContactsProperties" EntitySet="NotRegisteredContactsProperties" />
+          </AssociationSet>
+          <EntitySet Name="ContactsSummary" EntityType="Model.ContactsSummary" />
+          <EntitySet Name="Images" EntityType="Model.Images" />
+          <AssociationSet Name="FK__EventTemp__Pictu__18EBB532" Association="Model.FK__EventTemp__Pictu__18EBB532">
+            <End Role="Images" EntitySet="Images" />
+            <End Role="EventTemplates" EntitySet="EventTemplates" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Propertie__Image__160F4887" Association="Model.FK__Propertie__Image__160F4887">
+            <End Role="Images" EntitySet="Images" />
+            <End Role="PropertiesValuesImages" EntitySet="PropertiesValuesImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserData__Pictur__17F790F9" Association="Model.FK__UserData__Pictur__17F790F9">
+            <End Role="Images" EntitySet="Images" />
+            <End Role="UserData" EntitySet="UserData" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Contacts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="UserData" Relationship="Model.FK_Contacts_UserData" FromRole="Contacts" ToRole="UserData" />
+          <NavigationProperty Name="ContactData" Relationship="Model.RegisteredContacts" FromRole="Contacts" ToRole="UserData" />
+          <NavigationProperty Name="NotRegisteredContacts" Relationship="Model.FK_NotRegisteredContacts_Contacts1" FromRole="Contacts" ToRole="NotRegisteredContacts" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CreationDateTime" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="TemplateId" Type="Int32" Nullable="false" />
+          <Property Name="DeletionDate" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="EventTemplates" Relationship="Model.FK_Event_EventTemplates" FromRole="Event" ToRole="EventTemplates" />
+          <NavigationProperty Name="UserData" Relationship="Model.FK_Event_UserData" FromRole="Event" ToRole="UserData" />
+          <NavigationProperty Name="PropertiesValuesBool" Relationship="Model.FK_PropertiesValuesBool_Event" FromRole="Event" ToRole="PropertiesValuesBool" />
+          <NavigationProperty Name="PropertiesValuesDateTime" Relationship="Model.FK_PropertiesValuesDateTime_Event" FromRole="Event" ToRole="PropertiesValuesDateTime" />
+          <NavigationProperty Name="PropertiesValuesImages" Relationship="Model.FK_PropertiesValuesImages_Event" FromRole="Event" ToRole="PropertiesValuesImages" />
+          <NavigationProperty Name="PropertiesValuesInt" Relationship="Model.FK_PropertiesValuesInt_Event" FromRole="Event" ToRole="PropertiesValuesInt" />
+          <NavigationProperty Name="PropertiesValuesString" Relationship="Model.FK_PropertiesValuesString_Event" FromRole="Event" ToRole="PropertiesValuesString" />
+          <NavigationProperty Name="Folders" Relationship="Model.FoldersToEvents" FromRole="Event" ToRole="Folders" />
+        </EntityType>
+        <EntityType Name="EventTemplates">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="UserId" Type="Int32" />
+          <NavigationProperty Name="Event" Relationship="Model.FK_Event_EventTemplates" FromRole="EventTemplates" ToRole="Event" />
+          <NavigationProperty Name="Properties" Relationship="Model.TemplateProperties" FromRole="EventTemplates" ToRole="Properties" />
+          <NavigationProperty Name="UserData" Relationship="Model.FK_EventTemplates_UserData" FromRole="EventTemplates" ToRole="UserData" />
+          <Property Type="Int32" Name="PictureId" />
+          <NavigationProperty Name="Images" Relationship="Model.FK__EventTemp__Pictu__18EBB532" FromRole="EventTemplates" ToRole="Images" />
+        </EntityType>
+        <EntityType Name="Folders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="UserData" Relationship="Model.FK_Folders_UserData" FromRole="Folders" ToRole="UserData" />
+          <NavigationProperty Name="Event" Relationship="Model.FoldersToEvents" FromRole="Folders" ToRole="Event" />
+          <Property Type="Int32" Name="PictureId" />
+        </EntityType>
+        <EntityType Name="Languages">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="DisplayName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="StringsLocalization" Relationship="Model.FK_StringsLocalization_Languages" FromRole="Languages" ToRole="StringsLocalization" />
+          <NavigationProperty Name="UserData" Relationship="Model.FK_UserData_Languages" FromRole="Languages" ToRole="UserData" />
+        </EntityType>
+        <EntityType Name="Properties">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="TypeId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PropertyTypes" Relationship="Model.FK_Properties_PropertyTypes" FromRole="Properties" ToRole="PropertyTypes" />
+          <NavigationProperty Name="PropertiesValuesBool" Relationship="Model.FK_PropertiesValuesBool_Properties" FromRole="Properties" ToRole="PropertiesValuesBool" />
+          <NavigationProperty Name="PropertiesValuesDateTime" Relationship="Model.FK_PropertiesValuesDateTime_Properties" FromRole="Properties" ToRole="PropertiesValuesDateTime" />
+          <NavigationProperty Name="PropertiesValuesImages" Relationship="Model.FK_PropertiesValuesImages_Properties" FromRole="Properties" ToRole="PropertiesValuesImages" />
+          <NavigationProperty Name="PropertiesValuesInt" Relationship="Model.FK_PropertiesValuesInt_Properties" FromRole="Properties" ToRole="PropertiesValuesInt" />
+          <NavigationProperty Name="PropertiesValuesString" Relationship="Model.FK_PropertiesValuesString_Properties" FromRole="Properties" ToRole="PropertiesValuesString" />
+          <NavigationProperty Name="EventTemplates" Relationship="Model.TemplateProperties" FromRole="Properties" ToRole="EventTemplates" />
+        </EntityType>
+        <EntityType Name="PropertiesValuesBool">
+          <Key>
+            <PropertyRef Name="PropertyId" />
+            <PropertyRef Name="EventId" />
+          </Key>
+          <Property Name="PropertyId" Type="Int32" Nullable="false" />
+          <Property Name="EventId" Type="Int32" Nullable="false" />
+          <Property Name="Value" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Event" Relationship="Model.FK_PropertiesValuesBool_Event" FromRole="PropertiesValuesBool" ToRole="Event" />
+          <NavigationProperty Name="Properties" Relationship="Model.FK_PropertiesValuesBool_Properties" FromRole="PropertiesValuesBool" ToRole="Properties" />
+        </EntityType>
+        <EntityType Name="PropertiesValuesDateTime">
+          <Key>
+            <PropertyRef Name="PropertyId" />
+            <PropertyRef Name="EventId" />
+          </Key>
+          <Property Name="PropertyId" Type="Int32" Nullable="false" />
+          <Property Name="EventId" Type="Int32" Nullable="false" />
+          <Property Name="Value" Type="DateTime" Nullable="false" Precision="7" />
+          <NavigationProperty Name="Event" Relationship="Model.FK_PropertiesValuesDateTime_Event" FromRole="PropertiesValuesDateTime" ToRole="Event" />
+          <NavigationProperty Name="Properties" Relationship="Model.FK_PropertiesValuesDateTime_Properties" FromRole="PropertiesValuesDateTime" ToRole="Properties" />
+        </EntityType>
+        <EntityType Name="PropertiesValuesImages">
+          <Key>
+            <PropertyRef Name="PropertyId" />
+            <PropertyRef Name="EventId" />
+          </Key>
+          <Property Name="PropertyId" Type="Int32" Nullable="false" />
+          <Property Name="EventId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Event" Relationship="Model.FK_PropertiesValuesImages_Event" FromRole="PropertiesValuesImages" ToRole="Event" />
+          <NavigationProperty Name="Properties" Relationship="Model.FK_PropertiesValuesImages_Properties" FromRole="PropertiesValuesImages" ToRole="Properties" />
+          <Property Type="Int32" Name="ImageId" Nullable="false" />
+          <NavigationProperty Name="Images" Relationship="Model.FK__Propertie__Image__160F4887" FromRole="PropertiesValuesImages" ToRole="Images" />
+        </EntityType>
+        <EntityType Name="PropertiesValuesInt">
+          <Key>
+            <PropertyRef Name="PropertyId" />
+            <PropertyRef Name="EventId" />
+          </Key>
+          <Property Name="PropertyId" Type="Int32" Nullable="false" />
+          <Property Name="EventId" Type="Int32" Nullable="false" />
+          <Property Name="Value" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Event" Relationship="Model.FK_PropertiesValuesInt_Event" FromRole="PropertiesValuesInt" ToRole="Event" />
+          <NavigationProperty Name="Properties" Relationship="Model.FK_PropertiesValuesInt_Properties" FromRole="PropertiesValuesInt" ToRole="Properties" />
+        </EntityType>
+        <EntityType Name="PropertiesValuesString">
+          <Key>
+            <PropertyRef Name="PropertyId" />
+            <PropertyRef Name="EventId" />
+          </Key>
+          <Property Name="PropertyId" Type="Int32" Nullable="false" />
+          <Property Name="EventId" Type="Int32" Nullable="false" />
+          <Property Name="Value" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Event" Relationship="Model.FK_PropertiesValuesString_Event" FromRole="PropertiesValuesString" ToRole="Event" />
+          <NavigationProperty Name="Properties" Relationship="Model.FK_PropertiesValuesString_Properties" FromRole="PropertiesValuesString" ToRole="Properties" />
+        </EntityType>
+        <EntityType Name="PropertyTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeName" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Properties" Relationship="Model.FK_Properties_PropertyTypes" FromRole="PropertyTypes" ToRole="Properties" />
+        </EntityType>
+        <EntityType Name="StringNames">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="StringsLocalization" Relationship="Model.FK_StringsLocalization_StringsNames" FromRole="StringNames" ToRole="StringsLocalization" />
+        </EntityType>
+        <EntityType Name="StringsLocalization">
+          <Key>
+            <PropertyRef Name="StringId" />
+            <PropertyRef Name="LangId" />
+          </Key>
+          <Property Name="StringId" Type="Int32" Nullable="false" />
+          <Property Name="LangId" Type="Int32" Nullable="false" />
+          <Property Name="LocalizedString" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Languages" Relationship="Model.FK_StringsLocalization_Languages" FromRole="StringsLocalization" ToRole="Languages" />
+          <NavigationProperty Name="StringNames" Relationship="Model.FK_StringsLocalization_StringsNames" FromRole="StringsLocalization" ToRole="StringNames" />
+        </EntityType>
+        <EntityType Name="UserData">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Surname" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="SecondName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="BirthDate" Type="DateTime" Precision="0" />
+          <Property Name="LangId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Contacts" Relationship="Model.FK_Contacts_UserData" FromRole="UserData" ToRole="Contacts" />
+          <NavigationProperty Name="Event" Relationship="Model.FK_Event_UserData" FromRole="UserData" ToRole="Event" />
+          <NavigationProperty Name="Folders" Relationship="Model.FK_Folders_UserData" FromRole="UserData" ToRole="Folders" />
+          <NavigationProperty Name="Languages" Relationship="Model.FK_UserData_Languages" FromRole="UserData" ToRole="Languages" />
+          <NavigationProperty Name="UserProperties" Relationship="Model.FK_UserProperties_UserData" FromRole="UserData" ToRole="UserProperties" />
+          <NavigationProperty Name="Contacts1" Relationship="Model.RegisteredContacts" FromRole="UserData" ToRole="Contacts" />
+          <NavigationProperty Name="EventTemplates" Relationship="Model.FK_EventTemplates_UserData" FromRole="UserData" ToRole="EventTemplates" />
+          <Property Type="Int32" Name="PictureId" />
+          <NavigationProperty Name="Images" Relationship="Model.FK__UserData__Pictur__17F790F9" FromRole="UserData" ToRole="Images" />
+        </EntityType>
+        <EntityType Name="UserProperties">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="Value" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="UserData" Relationship="Model.FK_UserProperties_UserData" FromRole="UserProperties" ToRole="UserData" />
+        </EntityType>
+        <Association Name="FK_Contacts_UserData">
+          <End Role="UserData" Type="Model.UserData" Multiplicity="1" />
+          <End Role="Contacts" Type="Model.Contacts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserData">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Contacts">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Event_EventTemplates">
+          <End Role="EventTemplates" Type="Model.EventTemplates" Multiplicity="1" />
+          <End Role="Event" Type="Model.Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EventTemplates">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="TemplateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Event_UserData">
+          <End Role="UserData" Type="Model.UserData" Multiplicity="1" />
+          <End Role="Event" Type="Model.Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserData">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PropertiesValuesBool_Event">
+          <End Role="Event" Type="Model.Event" Multiplicity="1" />
+          <End Role="PropertiesValuesBool" Type="Model.PropertiesValuesBool" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PropertiesValuesBool">
+              <PropertyRef Name="EventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PropertiesValuesDateTime_Event">
+          <End Role="Event" Type="Model.Event" Multiplicity="1" />
+          <End Role="PropertiesValuesDateTime" Type="Model.PropertiesValuesDateTime" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PropertiesValuesDateTime">
+              <PropertyRef Name="EventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PropertiesValuesImages_Event">
+          <End Role="Event" Type="Model.Event" Multiplicity="1" />
+          <End Role="PropertiesValuesImages" Type="Model.PropertiesValuesImages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PropertiesValuesImages">
+              <PropertyRef Name="EventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PropertiesValuesInt_Event">
+          <End Role="Event" Type="Model.Event" Multiplicity="1" />
+          <End Role="PropertiesValuesInt" Type="Model.PropertiesValuesInt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PropertiesValuesInt">
+              <PropertyRef Name="EventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PropertiesValuesString_Event">
+          <End Role="Event" Type="Model.Event" Multiplicity="1" />
+          <End Role="PropertiesValuesString" Type="Model.PropertiesValuesString" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PropertiesValuesString">
+              <PropertyRef Name="EventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Folders_UserData">
+          <End Role="UserData" Type="Model.UserData" Multiplicity="1" />
+          <End Role="Folders" Type="Model.Folders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserData">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Folders">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StringsLocalization_Languages">
+          <End Role="Languages" Type="Model.Languages" Multiplicity="1" />
+          <End Role="StringsLocalization" Type="Model.StringsLocalization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Languages">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StringsLocalization">
+              <PropertyRef Name="LangId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserData_Languages">
+          <End Role="Languages" Type="Model.Languages" Multiplicity="1" />
+          <End Role="UserData" Type="Model.UserData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Languages">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserData">
+              <PropertyRef Name="LangId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Properties_PropertyTypes">
+          <End Role="PropertyTypes" Type="Model.PropertyTypes" Multiplicity="1" />
+          <End Role="Properties" Type="Model.Properties" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PropertyTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Properties">
+              <PropertyRef Name="TypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PropertiesValuesBool_Properties">
+          <End Role="Properties" Type="Model.Properties" Multiplicity="1" />
+          <End Role="PropertiesValuesBool" Type="Model.PropertiesValuesBool" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Properties">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PropertiesValuesBool">
+              <PropertyRef Name="PropertyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PropertiesValuesDateTime_Properties">
+          <End Role="Properties" Type="Model.Properties" Multiplicity="1" />
+          <End Role="PropertiesValuesDateTime" Type="Model.PropertiesValuesDateTime" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Properties">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PropertiesValuesDateTime">
+              <PropertyRef Name="PropertyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PropertiesValuesImages_Properties">
+          <End Role="Properties" Type="Model.Properties" Multiplicity="1" />
+          <End Role="PropertiesValuesImages" Type="Model.PropertiesValuesImages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Properties">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PropertiesValuesImages">
+              <PropertyRef Name="PropertyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PropertiesValuesInt_Properties">
+          <End Role="Properties" Type="Model.Properties" Multiplicity="1" />
+          <End Role="PropertiesValuesInt" Type="Model.PropertiesValuesInt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Properties">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PropertiesValuesInt">
+              <PropertyRef Name="PropertyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PropertiesValuesString_Properties">
+          <End Role="Properties" Type="Model.Properties" Multiplicity="1" />
+          <End Role="PropertiesValuesString" Type="Model.PropertiesValuesString" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Properties">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PropertiesValuesString">
+              <PropertyRef Name="PropertyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StringsLocalization_StringsNames">
+          <End Role="StringNames" Type="Model.StringNames" Multiplicity="1" />
+          <End Role="StringsLocalization" Type="Model.StringsLocalization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StringNames">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StringsLocalization">
+              <PropertyRef Name="StringId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserProperties_UserData">
+          <End Role="UserData" Type="Model.UserData" Multiplicity="1" />
+          <End Role="UserProperties" Type="Model.UserProperties" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserData">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserProperties">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FoldersToEvents">
+          <End Role="Event" Type="Model.Event" Multiplicity="*" />
+          <End Role="Folders" Type="Model.Folders" Multiplicity="*" />
+        </Association>
+        <Association Name="RegisteredContacts">
+          <End Role="Contacts" Type="Model.Contacts" Multiplicity="*" />
+          <End Role="UserData" Type="Model.UserData" Multiplicity="0..1" />
+        </Association>
+        <Association Name="TemplateProperties">
+          <End Role="EventTemplates" Type="Model.EventTemplates" Multiplicity="*" />
+          <End Role="Properties" Type="Model.Properties" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_EventTemplates_UserData">
+          <End Type="Model.UserData" Role="UserData" Multiplicity="0..1" />
+          <End Type="Model.EventTemplates" Role="EventTemplates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserData">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="EventTemplates">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="NotRegisteredContacts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Surname" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Contacts" Relationship="Model.FK_NotRegisteredContacts_Contacts1" FromRole="NotRegisteredContacts" ToRole="Contacts" />
+          <NavigationProperty Name="NotRegisteredContactsProperties" Relationship="Model.FK_NotRegisteredContactsProperties_NotRegisteredContacts" FromRole="NotRegisteredContacts" ToRole="NotRegisteredContactsProperties" />
+        </EntityType>
+        <EntityType Name="NotRegisteredContactsProperties">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="ContactId" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Value" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="NotRegisteredContacts" Relationship="Model.FK_NotRegisteredContactsProperties_NotRegisteredContacts" FromRole="NotRegisteredContactsProperties" ToRole="NotRegisteredContacts" />
+        </EntityType>
+        <Association Name="FK_NotRegisteredContacts_Contacts1">
+          <End Type="Model.Contacts" Role="Contacts" Multiplicity="1" />
+          <End Type="Model.NotRegisteredContacts" Role="NotRegisteredContacts" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Contacts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NotRegisteredContacts">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NotRegisteredContactsProperties_NotRegisteredContacts">
+          <End Type="Model.NotRegisteredContacts" Role="NotRegisteredContacts" Multiplicity="1" />
+          <End Type="Model.NotRegisteredContactsProperties" Role="NotRegisteredContactsProperties" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NotRegisteredContacts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NotRegisteredContactsProperties">
+              <PropertyRef Name="ContactId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ContactsSummary">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Surname" />
+          </Key>
+          <Property Type="Int32" Name="UserId" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Surname" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Images">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Binary" Name="Image" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="EventTemplates" Relationship="Model.FK__EventTemp__Pictu__18EBB532" FromRole="Images" ToRole="EventTemplates" />
+          <NavigationProperty Name="PropertiesValuesImages" Relationship="Model.FK__Propertie__Image__160F4887" FromRole="Images" ToRole="PropertiesValuesImages" />
+          <NavigationProperty Name="UserData" Relationship="Model.FK__UserData__Pictur__17F790F9" FromRole="Images" ToRole="UserData" />
+        </EntityType>
+        <Association Name="FK__EventTemp__Pictu__18EBB532">
+          <End Type="Model.Images" Role="Images" Multiplicity="0..1" />
+          <End Type="Model.EventTemplates" Role="EventTemplates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Images">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EventTemplates">
+              <PropertyRef Name="PictureId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Propertie__Image__160F4887">
+          <End Type="Model.Images" Role="Images" Multiplicity="1" />
+          <End Type="Model.PropertiesValuesImages" Role="PropertiesValuesImages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Images">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PropertiesValuesImages">
+              <PropertyRef Name="ImageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserData__Pictur__17F790F9">
+          <End Type="Model.Images" Role="Images" Multiplicity="0..1" />
+          <End Type="Model.UserData" Role="UserData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Images">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserData">
+              <PropertyRef Name="PictureId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="Contacts">
+            <EntityTypeMapping TypeName="Model.Contacts">
+              <MappingFragment StoreEntitySet="Contacts">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Event">
+            <EntityTypeMapping TypeName="Model.Event">
+              <MappingFragment StoreEntitySet="Event">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CreationDateTime" ColumnName="CreationDateTime" />
+                <ScalarProperty Name="TemplateId" ColumnName="TemplateId" />
+                <ScalarProperty Name="DeletionDate" ColumnName="DeletionDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EventTemplates">
+            <EntityTypeMapping TypeName="Model.EventTemplates">
+              <MappingFragment StoreEntitySet="EventTemplates">
+                <ScalarProperty Name="PictureId" ColumnName="PictureId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Folders">
+            <EntityTypeMapping TypeName="Model.Folders">
+              <MappingFragment StoreEntitySet="Folders">
+                <ScalarProperty Name="PictureId" ColumnName="PictureId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Langs">
+            <EntityTypeMapping TypeName="Model.Languages">
+              <MappingFragment StoreEntitySet="Languages">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Properties">
+            <EntityTypeMapping TypeName="Model.Properties">
+              <MappingFragment StoreEntitySet="Properties">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PropertiesValuesBool">
+            <EntityTypeMapping TypeName="Model.PropertiesValuesBool">
+              <MappingFragment StoreEntitySet="PropertiesValuesBool">
+                <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+                <ScalarProperty Name="EventId" ColumnName="EventId" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PropertiesValuesDateTime">
+            <EntityTypeMapping TypeName="Model.PropertiesValuesDateTime">
+              <MappingFragment StoreEntitySet="PropertiesValuesDateTime">
+                <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+                <ScalarProperty Name="EventId" ColumnName="EventId" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PropertiesValuesImages">
+            <EntityTypeMapping TypeName="Model.PropertiesValuesImages">
+              <MappingFragment StoreEntitySet="PropertiesValuesImages">
+                <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+                <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+                <ScalarProperty Name="EventId" ColumnName="EventId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PropertiesValuesInt">
+            <EntityTypeMapping TypeName="Model.PropertiesValuesInt">
+              <MappingFragment StoreEntitySet="PropertiesValuesInt">
+                <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+                <ScalarProperty Name="EventId" ColumnName="EventId" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PropertiesValuesString">
+            <EntityTypeMapping TypeName="Model.PropertiesValuesString">
+              <MappingFragment StoreEntitySet="PropertiesValuesString">
+                <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+                <ScalarProperty Name="EventId" ColumnName="EventId" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PropertyTypes">
+            <EntityTypeMapping TypeName="Model.PropertyTypes">
+              <MappingFragment StoreEntitySet="PropertyTypes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StringNames">
+            <EntityTypeMapping TypeName="Model.StringNames">
+              <MappingFragment StoreEntitySet="StringNames">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StringsLocalization">
+            <EntityTypeMapping TypeName="Model.StringsLocalization">
+              <MappingFragment StoreEntitySet="StringsLocalization">
+                <ScalarProperty Name="StringId" ColumnName="StringId" />
+                <ScalarProperty Name="LangId" ColumnName="LangId" />
+                <ScalarProperty Name="LocalizedString" ColumnName="LocalizedString" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserData">
+            <EntityTypeMapping TypeName="Model.UserData">
+              <MappingFragment StoreEntitySet="UserData">
+                <ScalarProperty Name="PictureId" ColumnName="PictureId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="SecondName" ColumnName="SecondName" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="LangId" ColumnName="LangId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserProperties">
+            <EntityTypeMapping TypeName="Model.UserProperties">
+              <MappingFragment StoreEntitySet="UserProperties">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="FoldersToEvents" TypeName="Model.FoldersToEvents" StoreEntitySet="FoldersToEvents">
+            <EndProperty Name="Event">
+              <ScalarProperty Name="Id" ColumnName="EventId" />
+            </EndProperty>
+            <EndProperty Name="Folders">
+              <ScalarProperty Name="Id" ColumnName="FolderId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="RegisteredContacts" TypeName="Model.RegisteredContacts" StoreEntitySet="RegisteredContacts">
+            <EndProperty Name="Contacts">
+              <ScalarProperty Name="Id" ColumnName="ContactId" />
+            </EndProperty>
+            <EndProperty Name="UserData">
+              <ScalarProperty Name="UserId" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="TemplateProperties" TypeName="Model.TemplateProperties" StoreEntitySet="TemplateProperties">
+            <EndProperty Name="EventTemplates">
+              <ScalarProperty Name="Id" ColumnName="TemplateId" />
+            </EndProperty>
+            <EndProperty Name="Properties">
+              <ScalarProperty Name="Id" ColumnName="PropertyId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="NotRegisteredContacts">
+            <EntityTypeMapping TypeName="Model.NotRegisteredContacts">
+              <MappingFragment StoreEntitySet="NotRegisteredContacts">
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NotRegisteredContactsProperties">
+            <EntityTypeMapping TypeName="Model.NotRegisteredContactsProperties">
+              <MappingFragment StoreEntitySet="NotRegisteredContactsProperties">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContactsSummary">
+            <EntityTypeMapping TypeName="Model.ContactsSummary">
+              <MappingFragment StoreEntitySet="ContactsSummary">
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Images">
+            <EntityTypeMapping TypeName="Model.Images">
+              <MappingFragment StoreEntitySet="Images">
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

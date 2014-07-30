@@ -1,0 +1,109 @@
+﻿@model WebScheduler.Models.UserDataViewModel
+
+@using WebScheduler.Classes
+
+<script src="~/Scripts/jquery-1.7.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+@using (Html.BeginForm("SaveUserData", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true)
+    @Html.AntiForgeryToken()
+    
+    <fieldset>
+        <legend>UserDataViewModel</legend>
+
+        @Html.HiddenFor(model => model.UserId)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Surname)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Surname)
+            @Html.ValidationMessageFor(model => model.Surname)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SecondName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SecondName)
+            @Html.ValidationMessageFor(model => model.SecondName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.BirthDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.BirthDate)
+            @Html.ValidationMessageFor(model => model.BirthDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LangId)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("LangId")
+            @Html.ValidationMessageFor(model => model.LangId)
+        </div>
+        @if (Model.PictureId!=null)
+        {
+            @Html.Picture(Model.PictureId, "SomeError")
+        }
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Picture)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Picture, new { type = "file", accept = ".jpg,.png,.jpeg,..gif" })
+            @Html.ValidationMessageFor(model => model.Picture)
+        </div>
+        <h3>Additional user Data</h3>
+        <div id="additionalUserData">
+            @if (Model != null && Model.UserProperties != null)
+            {
+                for (int i = 0; i < Model.UserProperties.Count; i++)
+                {
+                    
+                    <div id="@("additionalUserData" + i.ToString())">
+                        @Html.HiddenFor(model => model.UserProperties[i].Id)
+                        @Html.HiddenFor(model=>model.UserProperties[i].UserId)
+                        <div id="@("userdata-name" + i.ToString())" class="userdata-name">
+                            @Html.EditorFor(model => model.UserProperties[i].Name)
+                            @Html.ValidationMessageFor(model => model.UserProperties[i].Name)
+                        </div>
+                        <div id="@("userdata-value" + i.ToString())" class="userdata-value">
+                            @Html.EditorFor(model => model.UserProperties[i].Value)
+                            @Html.ValidationMessageFor(model => model.UserProperties[i].Value)
+                        </div>
+                        <div id="@("delete-userdata" + i.ToString())" class="delete-userdata">
+                            <a href="javascript:deleteUserProperty(@i)">DeleteUserProperty</a>
+                        </div>
+                    </div>
+                }
+            }
+            
+        </div>
+        <div>
+            <a href="javascript:addUserProperty()">AddUserProperty</a>
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+
